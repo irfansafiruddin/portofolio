@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Fan - Premium Style</title>
+
+    <style>
+        /* COLOR THEME */
+        :root {
+            --bg: #f2f4ff;
+            --text: #0d0d14;
+            --glass: rgba(255, 255, 255, 0.35);
+            --primary: #4d47ff;
+            --primary-soft: #7470ff;
+            --card: rgba(255, 255, 255, 0.45);
+        }
+        body.dark {
+            --bg: linear-gradient(180deg, #050509, #0b0f1a);
+            --text: #e6e6ff;
+            --glass: rgba(20,20,40,0.55);
+            --primary: #9a8cff;
+            --primary-soft: #b7afff;
+            --card: rgba(255,255,255,0.06);
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.4s;
+            overflow-x: hidden;
+        }
+
+        /* GLOBAL ANIMATION */
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(30px);} 
+            to { opacity: 1; transform: translateY(0);} 
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0);} 
+            50% { transform: translateY(-12px);} 
+            100% { transform: translateY(0);} 
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(15px);
+            background: var(--glass);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        nav a {
+            margin-left: 28px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text);
+            transition: .3s;
+        }
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* DARK MODE */
+        .dark-toggle {
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+            margin-right: 80px;
+        }
+        .dark-toggle:hover { transform: scale(1.1); }
+
+        /* HERO */
+        header.hero {
+            padding: 150px 20px 100px;
+            text-align: center;
+            animation: fadeSlide 1s ease;
+        }
+        .hero h1 { font-size: 3rem; }
+        .hero p { font-size: 1.2rem; opacity: .9; }
+
+        .hero-blob {
+            margin-top: 35px;
+            font-size: 55px;
+            animation: floating 4s infinite ease-in-out;
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 30px;
+            animation: fadeSlide .8s ease;
+        }
+        h2 { text-align: center; font-size: 2.2rem; }
+
+        /* GLASS CARD LIST */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+        }
+        .card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: .3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+        }
+
+        /* BUTTON */
+        .btn {
+            padding: 14px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 15px;
+            transition: .3s;
+        }
+        .btn:hover { background: var(--primary-soft); transform: scale(1.05); }
+
+        /* PORTFOLIO */
+        .portfolio-img {
+            width: 100%;
+            height: 180px;
+            background: #ccc;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* REVEAL ANIMATION */
+        .reveal { opacity: 0; transform: translateY(40px); transition: .7s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">IRFAN SAFIRUDDIN</div>
+        <div>
+            <a href="#about">Tentang</a>
+            <a href="#services">Layanan</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#contact">Kontak</a>
+            <span class="dark-toggle" onclick="toggleDark()" style="margin-left: 10px;">🌙</span>
+        </div>
+    </nav>
+
+    <header class="hero reveal">
+        <h1>Halo, Saya Irfan</h1>
+        <p>Freelance Web Developer dengan desain modern & profesional</p>
+        <div class="hero-blob"><img src="irfan bpvp.png" alt="" style="height: 50%; width: 250px;"></div>
+        <a class="btn" href="#contact">Hubungi Saya</a>
+    </header>
+
+    <section id="about" class="reveal">
+        <h2>Tentang Saya</h2>
+        <p style="max-width:700px; margin:auto; text-align:center;">
+            Saya membuat website elegan, cepat, dan responsive dengan sentuhan desain premium.
+        </p>
+    </section>
+
+    <section id="services" class="reveal">
+        <h2>Layanan</h2>
+        <div class="grid">
+            <div class="card"><h3>Website Premium</h3><p>Front-end modern dengan efek animasi halus.</p></div>
+            <div class="card"><h3>UI/UX Desain</h3><p>Desain elegan & bersih menggunakan Figma.</p></div>
+            <div class="card"><h3>Optimasi</h3><p>Kecepatan tinggi & SEO dasar.</p></div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="reveal">
+        <h2>Portofolio</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="portfolio-img"><img src="Screenshot (1).png" alt="" style="width: 100%; height: 100%;"></div>
+                <h3>Project umkm-website</h3>
+                <p>dapat menyambungkan langsung ke sosial media anda seperti WhatsApp, dsb.</p>
+                 link: <a href="https://irfansafiruddin.github.io/umkm-website/">Website-umkm</a>
+            </div>
+            <div class="card">
+                <div class="portfolio-img"></div>
+                <h3>Project 2</h3>
+            </div>
+            <div class="card">
+                <div class="portfolio-img"></div>
+                <h3>Project 3</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2>Kontak</h2>
+        <p style="text-align:center;">Tertarik bekerja sama? Klik tombol di bawah.</p>
+        <div style="text-align:center;">
+            <a class="btn" href="https://wa.me/+6281245634373">WhatsApp Saya</a>
+        </div>
+        <div style="text-align: center;">
+            <a class="btn" href="https://www.instagram.com//fannscout">instagram saya</a>
+        </div>
+    </section>
+
+    <script>
+        function toggleDark(){ document.body.classList.toggle('dark'); }
+
+        // REVEAL on SCROLL
+        const rev = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            rev.forEach(r => {
+                const top = r.getBoundingClientRect().top;
+                if(top < window.innerHeight - 80){ r.classList.add('active'); }
+            })
+        })
+    </script>
+
+</body>
+</html>
